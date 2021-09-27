@@ -45,7 +45,8 @@ function Form() {
                     
                     
                 }}
-                onSubmit={(valores) => {
+                onSubmit={(valores, {resetForm}) => {
+                    resetForm()
                     console.log(valores)
                 }}>
                 {({ values, errors, touched, handleSubmit, handleChange, handleBlur }: FormikProps<Form>) => (
