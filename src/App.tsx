@@ -6,7 +6,7 @@ import './styles/App.css';
 function App() {
   return (
     <div className="App">
-      <h1 className="tilte">Cree su perfil</h1>
+      <h1 className="title">Cree su perfil</h1>
       <div className="container">
         <Form />
       </div>
