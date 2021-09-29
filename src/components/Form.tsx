@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik, FormikProps, FormikErrors } from 'formik'
+import axios from 'axios'
 import '../styles/Form.css'
 
 function Form() {
@@ -47,7 +48,12 @@ function Form() {
                 }}
                 onSubmit={(valores, {resetForm}) => {
                     resetForm()
-                    console.log(valores)
+                    
+                        axios.post('http://localhost:3030/users', valores)
+                        .then(res => console.log(res))
+                        
+                    
+                    //console.log(valores)
                 }}>
                 {({ values, errors, touched, handleSubmit, handleChange, handleBlur }: FormikProps<Form>) => (
                     <form className="form" onSubmit={handleSubmit}>
