@@ -1,0 +1,17 @@
+.box {
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+	display: grid;
+	grid-template-columns: 20% auto;
+    min-width: 500px;
+	margin-top: 20px;
+	background: #fff;
+	border-radius: 5px;
+	padding: 20px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
