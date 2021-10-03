@@ -8,6 +8,7 @@ function Form() {
 
     interface Form {
         name: string,
+        email: string,
         occupation: string,
         description: string
     }
@@ -20,6 +21,7 @@ function Form() {
 
                 initialValues={{
                     name: '',
+                    email: '',
                     occupation: '',
                     description: ''
                 }}
@@ -31,6 +33,13 @@ function Form() {
                         error.name = 'Ingrese un nombre'
                     }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)){
                         error.name = 'El nombre solo puede contener letras y espacios'
+                    }
+
+                    //Validacion para el email
+                    if(!valores.email){
+                        error.email = 'Ingrese un nombre'
+                    }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
+                        error.email = 'Email no valido'
                     }
 
                     //Validacion para la ocupacion
@@ -72,6 +81,19 @@ function Form() {
                                 onBlur={handleBlur}
                             />
                             {touched.name && errors.name && <div className="error">{errors.name}</div>}
+                        </div>
+                        <div>
+                            <label htmlFor="name">Email</label>
+                            <input
+                                type="text"
+                                id='email'
+                                name='email'
+                                placeholder='Tu email'
+                                value={values.email} 
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+                            {touched.email && errors.email && <div className="error">{errors.email}</div>}
                         </div>
                         <div>
                             <label htmlFor="occupation">Ocupacion</label>
