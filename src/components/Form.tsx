@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik, FormikProps, FormikErrors } from 'formik'
+import { useHistory } from 'react-router'
 import axios from 'axios'
 import '../styles/Form.css'
 
@@ -10,6 +11,8 @@ function Form() {
         occupation: string,
         description: string
     }
+
+    const history = useHistory()
 
     return (
         <>
@@ -51,7 +54,7 @@ function Form() {
                     
                         axios.post('http://localhost:3030/users', valores)
                         .then(res => console.log(res))
-                        
+                        .then(() => history.push('/list'))
                     
                     //console.log(valores)
                 }}>
