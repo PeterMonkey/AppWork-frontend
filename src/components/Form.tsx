@@ -62,7 +62,7 @@ function Form() {
                     resetForm()
                     
                         axios.post('http://localhost:3030/users', valores)
-                        .then(res => console.log(res))
+                        //.then(res => console.log(res))
                         .then(() => history.push('/list'))
                     
                     //console.log(valores)

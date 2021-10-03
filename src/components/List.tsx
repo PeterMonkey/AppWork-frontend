@@ -1,30 +1,37 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import Card from './Card';
+import axios, {AxiosResponse} from 'axios'
 import '../styles/List.css'
 
-type typeProps = {
+//###############################
+interface typeData {
+    id: string
     name: string,
-    occupation: string
+    email: string,
+    occupation: string,
+    description: string
 }
+//##############################
 
-function List({ name, occupation }: typeProps) {
+function List() {
+
+    const [data, setData] = useState<typeData[]>([])
+
+    useEffect(() => {
+        axios.get('http://localhost:3030/users')
+        .then((res) => setData(res.data))
+
+    console.log(data)
+    }, [])
+    
+
     return (
-        <>
-            <div className="box">
-                <div className="card">
-                    <div className="image">
-
-                    </div>
-                    <div className="cont">
-                        <h3>{name}</h3>
-
-                        <h5>{occupation}</h5>
-
-                    </div>
-                </div>
-
-
-            </div>
-        </>
+        <div className='box'>
+        {data.map(({id, name, occupation}) => (
+            <Card key={id} name={name} occupation={occupation}/>
+        ))}
+            
+        </div>
     )
 }
 

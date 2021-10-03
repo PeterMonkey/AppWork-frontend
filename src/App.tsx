@@ -18,7 +18,7 @@ function App() {
           <Route path='/list'>
 
             <div className="container">
-              <List name={'Pedro Fernandez'} occupation={'Developer'} />
+              <List />
             </div>
           </Route>
           <Route path='/'>
